@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/splashFragment2">
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.example.catalog.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_movieFragment"
+            app:destination="@id/nav_movie"
+            app:popUpTo="@id/splashFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_movie"
+        android:name="com.example.catalog.ui.main.movie.MovieFragment"
+        android:label="@string/movie"
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/actionMoviesToDetail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.catalog.ui.main.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="movie"
+            app:argType="com.example.catalog.model.Movie"
+            app:nullable="true" />
+        <argument
+            android:name="tvShow"
+            app:argType="com.example.catalog.model.TvShow"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_tv"
+        android:name="com.example.catalog.ui.main.tvShow.TvShowFragment"
+        android:label="@string/tv_shows"
+        tools:layout="@layout/fragment_tv_show" >
+        <action
+            android:id="@+id/actionTvToDetail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+</navigation>
